@@ -1,5 +1,5 @@
 # jquery.binding
-#本插件只有一个方法bindData
+##本插件只有一个方法bindData
 $(selector).bindData(modelObj,mapping);
 ###功能：
 	将jquery对象$element与指定的对象modelObj绑定
@@ -10,6 +10,7 @@ $(selector).bindData(modelObj,mapping);
  mapping：
    元素属性和modelObj对象属性的映射关系，它是可选的，如果没传入mapping，则从元素的mapping属性获取。
    从参数传入的mapping和从元素的mapping属性获取的mapping会进行合并。
+   
 ####mapping的形式如下：
 mapping={"key":"value",...}
 key为元素的属性名称，可以为
@@ -19,9 +20,11 @@ key为元素的属性名称，可以为
 	css.xxx--表示元素的css样式属性名称，由前缀"css."加上css属性名称构成，如：css.width,css.color
 	attr.xxx（或者prop.xxx）--表示元素的属性节点名称，由前缀"attr."加上属性名称构成，如 attr.href ,attr.name ,attr.src
  除了value，text，html这三个值外，如果还有没加前缀的值，那么默认前缀为css
+ 
 ####value为js对象属性名称:
 	value直接为对象属性，也可以为对象属性的属性名称，如一个对象{username:"xxx",birthday:{year:1,mouth:1,day:1}},那么
 	如果要表示用户名称，那value就为username，如果要绑定生日的年份，那么value就为birthday.year
+	
 ##例子1：
    html:
 ```
