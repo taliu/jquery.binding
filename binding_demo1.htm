@@ -1,0 +1,64 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>jquery.binding.js-插件示例一</title>
+    <script src="jquery-1.10.0.min.js" ></script>
+    <script src="jquery.binding.js" ></script>
+	<script type="text/javascript">
+     function Box(text,width,height,position,left,top,background,title){
+		this.text=text;
+		this.size={
+			width:width,
+			height:height
+		};
+		this.position=position;
+		this.left=left;
+		this.top=top;
+		this.background=background;
+		this.title=title;
+	  }
+	  var box=new Box("my name is box","100","100","absolute","100","300","red","I am a box");
+	$(function(){
+	    $("#boxText").bindData(box,{"value":"text"});
+		$("#boxWidth").bindData(box,{"value":"size.width"});
+		$("#boxHeight").bindData(box,{"value":"size.height"});
+		$("#boxPosition").bindData(box,{"value":"position"});
+		$("#boxLeft").bindData(box,{"value":"left"});
+		$("#boxTop").bindData(box,{"value":"top"});
+		$("#boxBackground").bindData(box,{"value":"background"});
+		$("#boxTitle").bindData(box,{"value":"title"});
+		
+		 $("#box").bindData(box,{
+			"text":"text",
+			"css.width":"size.width",
+			"css.height":"size.height",
+			"css.position":"position",
+			"left":"left",//默认css前缀
+			"top":"top",//默认css前缀
+			"background":"background",//默认css前缀
+			"attr.title":"title",
+		});
+	})
+	</script>
+</head>
+<body>
+   <table>
+	   <tr><td>Text</td><td><textarea id="boxText"></textarea></td></tr>
+	   <tr><td>Width</td><td><input  id="boxWidth" type="text"></td></tr>
+	   <tr><td>Height</td><td><input id="boxHeight" type="text" value=""></td></tr>
+	   <tr><td>Position</td><td>
+			<select id="boxPosition">
+				<option>absolute</option>
+				<option>fixed</option>
+				<option>relative</option>
+				<option>static</option>
+				<option>inherit</option>
+			</select>
+	   </td></tr>
+	   <tr><td>Left</td><td><input id="boxLeft" type="text" value=""></td></tr>
+	   <tr><td>Top</td><td><input id="boxTop" type="text" value=""></td></tr>
+	   <tr><td>Background</td><td><input id="boxBackground" type="text" value=""></td></tr>
+	   <tr><td>Title</td><td><input id="boxTitle" type="text" value=""></td></tr>
+   </table>
+   <div id="box"></div>
+</body>
+</html>

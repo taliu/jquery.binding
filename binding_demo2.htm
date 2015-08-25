@@ -1,0 +1,57 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>jquery.binding.js-²å¼þÊ¾Àý¶þ</title>
+    <script src="jquery-1.10.0.min.js" ></script>
+    <script src="jquery.binding.min.js" ></script>
+	<script type="text/javascript">
+     function Box(text,width,height,position,left,top,background,title){
+		this.text=text;
+		this.size={
+			width:width,
+			height:height
+		};
+		this.position=position;
+		this.left=left;
+		this.top=top;
+		this.background=background;
+		this.title=title;
+	  }
+	  var box=new Box("my name is box","100","100","absolute","100","300","red","I am a box");
+	$(function(){
+		$("#content").bindData(box);
+	})
+	</script>
+</head>
+<body>
+	<div id="content">
+	   <table>
+		   <tr><td>Text</td><td><textarea mapping='{"value":"text"}'></textarea></td></tr>
+		   <tr><td>Width</td><td><input  mapping='{"value":"size.width"}' type="text"></td></tr>
+		   <tr><td>Height</td><td><input mapping='{"value":"size.height"}' type="text" ></td></tr>
+		   <tr><td>Position</td><td>
+				<select mapping='{"value":"position"}' >
+					<option>absolute</option>
+					<option>fixed</option>
+					<option>relative</option>
+					<option>static</option>
+					<option>inherit</option>
+				</select>
+		   </td></tr>
+		   <tr><td>Left</td><td><input mapping='{"value":"left"}' type="text" ></td></tr>
+		   <tr><td>Top</td><td><input mapping='{"value":"top"}' type="text" ></td></tr>
+		   <tr><td>Background</td><td><input mapping='{"value":"background"}' type="text" ></td></tr>
+		   <tr><td>Title</td><td><input mapping='{"value":"title"}'  type="text" ></td></tr>
+	   </table>
+	   <div id="box" mapping='{
+			"text":"text",
+			"css.width":"size.width",
+			"css.height":"size.height",
+			"css.position":"position",
+			"left":"left", 
+			"top":"top", 
+			"background":"background", 
+			"attr.title":"title",
+		}'></div>
+   </div>
+</body>
+</html>
